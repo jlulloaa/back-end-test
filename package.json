@@ -5,7 +5,7 @@
   "main": "http_server.js",
   "scripts": {
     "test": "NODE_ENV=test jest",
-    "build": "npm run build"
+    "start": "node http_server.js",
   },
   "repository": {
     "type": "git",
