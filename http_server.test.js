@@ -54,7 +54,7 @@ it('populate data', async done => {
 
 it('verify data', async done => {
     const data = await request.get('/data');
-    expect(data.body.some(e => e.name === user1.email)).toBeTruthy();
+    expect(data.body.some(e => e.name === user1.name)).toBeTruthy();
     expect(data.body.some(e => e.name === user2.name)).toBeTruthy();
     expect(data.body.some(e => e.name === user3.name)).toBeTruthy();
     done(); 
