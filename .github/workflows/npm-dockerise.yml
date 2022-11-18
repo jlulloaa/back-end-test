@@ -16,16 +16,16 @@ jobs:
       - run: npm install
       - run: npm run build --if-present
       - run: npm test
- build:
-  runs-on: ubuntu-latest
-  steps:
-    - uses: actions/checkout@v1
-    - name: Login to DockerHub Registry
-      run: echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }}
-    - name: Get the version
-      id: vars
-      run: echo ::set-output name=tag::$(echo ${GITHUB_REF#refs/*/}
-    - name: Build the tagged Docker image
-      run: docker build -t jlulloaa/add_users .
-    - name: Push the tagged Docker image
-      run: docker push jlulloaa/add_users .
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Login to DockerHub Registry
+        run: echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }}
+      - name: Get the version
+        id: vars
+        run: echo ::set-output name=tag::$(echo ${GITHUB_REF#refs/*/}
+      - name: Build the tagged Docker image
+        run: docker build -t jlulloaa/add_users .
+      - name: Push the tagged Docker image
+        run: docker push jlulloaa/add_users .
