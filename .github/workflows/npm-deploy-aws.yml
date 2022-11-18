@@ -1,3 +1,7 @@
+name: Deploy on AWS from GitHub Actions
+run-name: ${{ github-actor }} is solving the last code assignment!
+on: [push]
+
 jobs:
   build:
     runs-on: ubuntu-latest
