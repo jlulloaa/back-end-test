@@ -10,7 +10,7 @@ function user() {
     const date = faker.date.past(50, new Date("Sat Sep 20 1992 21:35:02 GMT-0400"));
 
     // random data
-    //const name = faker.name.findName(firstName, lastName);
+    const name = faker.name.findName(firstName, lastName);
     const email = faker.internet.email(firstName, lastName);
     const username = faker.internet.userName(firstName, lastName);
     const password = faker.internet.password();
@@ -54,7 +54,7 @@ it('populate data', async done => {
 
 it('verify data', async done => {
     const data = await request.get('/data');
-    expect(data.body.some(e => e.name === user1.name)).toBeTruthy();
+    expect(data.body.some(e => e.name === user1.email)).toBeTruthy();
     expect(data.body.some(e => e.name === user2.name)).toBeTruthy();
     expect(data.body.some(e => e.name === user3.name)).toBeTruthy();
     done(); 
